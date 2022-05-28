@@ -1,8 +1,8 @@
 export const firebaseConfig = {
-    apiKey: "AIzaSyBNraKtyjgBYcwxvzxIIneab8zIPrNGYRA",
-    authDomain: "my-portfolio-625da.firebaseapp.com",
-    projectId: "my-portfolio-625da",
-    storageBucket: "my-portfolio-625da.appspot.com",
-    messagingSenderId: "207065256158",
-    appId: "1:207065256158:web:565569fe628f0a5cccf24f"
+    apiKey: "AIzaSyC6ZvR7QuVjzpkprStqMSx-vKMxwpRRMQA",
+    authDomain: "dominic-portfolio.firebaseapp.com",
+    projectId: "dominic-portfolio",
+    storageBucket: "dominic-portfolio.appspot.com",
+    messagingSenderId: "687412897098",
+    appId: "1:687412897098:web:3f72c201b5d26110594db3"
   };
