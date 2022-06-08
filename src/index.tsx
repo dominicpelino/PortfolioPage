@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home, About, Projects, Resume } from './components';
+import { Home, About  } from './components';
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from './Theme';
 import { FirebaseAppProvider } from 'reactfire';
 import { firebaseConfig } from './firebaseConfig';
 
@@ -16,14 +18,14 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/resume' element={<Resume />} />
-        </Routes>
-      </Router>
+      <ThemeProvider theme = {theme}>
+        <Router>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+          </Routes>
+        </Router>
+        </ThemeProvider>
     </FirebaseAppProvider>
   </React.StrictMode>
 );
