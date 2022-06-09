@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
-import { Root, Main, Overlay, BackgroundPic } from '../Home';
+import { Root, Main } from '../Home';
 
 //  Grid Images
 import backrope_image from '../../assets/images/backrope.jpeg';
@@ -27,22 +27,43 @@ import patrol_image from '../../assets/images/patrol.jpg';
 import recce_image from '../../assets/images/recce.jpg';
 import code_image from '../../assets/images/code.jpg';
 
-const BackgroundPicTwo = styled('main')( {
+const BackgroundPicMobile = styled('main')( {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${code_image});`,
     width: '100%',
-    height: '100%',
+    height: '45%',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     position: 'absolute',
-    top: '200%',
+    top: '165%',
     zIndex: '-1'
 });
-const OverlayThree = styled('main')( {
+const BackgroundWeb = styled('main')( {
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${code_image});`,
+    width: '100%',
+    height: '100%',
+    top: '65%',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    position: 'absolute',
+    zIndex: '-2'
+});
+const OverlayWeb = styled('main')( {
     backgroundColor: 'black',
     opacity: '50%',
     width: '100%',
-    height: '300%',
+    height: '165%',
+    backgroundSize: '100%',
+    backgroundRepeat: 'repeat',
+    position: 'absolute',
+    zIndex: '-1'
+});
+const OverlayMobile = styled('main')( {
+    backgroundColor: 'black',
+    opacity: '50%',
+    width: '100%',
+    height: '199%',
     backgroundSize: '100%',
     backgroundRepeat: 'repeat',
     position: 'absolute',
@@ -53,25 +74,32 @@ export const About = () => {
   return (
         <Root>
             <Box sx={{ display: {xs: 'none', md: 'block'}}}>
-                <Overlay/>
+                <OverlayWeb/>
             </Box>
             <Main>
-            <BackgroundPic/>
-                <Box sx={{ display: {xs: 'block', md: 'none'}}}>
-                    <BackgroundPicTwo/>
-                    <OverlayThree/>
+            <BackgroundWeb/>
+                <Box sx={{ display: {xs: 'block', sm: 'block', md: 'block', lg: 'none' }}}>
+                    <BackgroundPicMobile/>
+                </Box>
+                <Box sx={{ display: {xs: 'block', sm: 'block', md: 'block', lg: 'none' }}}>
+                    <OverlayMobile/>
                 </Box>
                 <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                     <Grid container spacing={3}>
-                        <Grid item xs={12}>
+                        <Grid item xs={6} sm={8} display="flex" flexDirection="row" >
                             <Tooltip title="Home" placement='bottom' arrow>
                                 <IconButton component={Link} to='/'>
-                                    <HomeIcon color='secondary' sx={{ fontSize: 50 }}/>
+                                    <HomeIcon color="secondary" sx={{ fontSize: 50 }}/>
                                 </IconButton>
                             </Tooltip>
                         </Grid>
+                        <Grid item xs={6} sm={4} display="flex" flexDirection="row" >
+                            <Typography sx={{mt: 1}} variant="h4" align="center" color="secondary" paragraph>
+                                DOMINIC PELINO
+                            </Typography>
+                        </Grid>
                             {/* Work */}
-                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'none', md: 'block'}}}>
+                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'none', sm: 'block', md: 'block'}}}>
                                 <Typography variant="h4" align="center" color="white" paragraph>
                                     Work
                                 </Typography>
@@ -101,8 +129,8 @@ export const About = () => {
                                     and I LOVE the ah-ha moment of fixing a particularly tricky piece of code.
                                 </Typography>
                             </Grid>
-                            {/* Work Mobile*/}
-                            <Grid item xs={12} md={6} lg={6} sx={{ mt: 10, display: {xs: 'block', md: 'none'}}}>
+                            {/* Work Narrow*/}
+                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'block', sm: 'none'}}}>
                                 <Typography variant="caption" align="center" color="white" paragraph>
                                     Work
                                 </Typography>
@@ -133,7 +161,7 @@ export const About = () => {
                                 </Typography>
                             </Grid>
                             {/* Work Images */}
-                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'none', md: 'inline'}}}>
+                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'none', md: 'block'}}}>
                                 <ImageList
                                     sx={{ width: 1, height: 1 }}
                                     variant="quilted"
@@ -153,13 +181,13 @@ export const About = () => {
                                         </ImageListItem>
                                 </ImageList>
                             </Grid>
-                            {/* Work Images mobile */}
-                            <Grid item xs={12} md={6} lg={6} sx={{ mt: 10, display: {xs: 'block', md: 'none'}}}>
+                            {/* Work Images Narrow */}
+                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'block', md: 'none'}}}>
                                 <ImageList
                                     sx={{ width: 1, height: 1}}
                                     variant="quilted"
                                     cols={4}
-                                    rowHeight={75}>
+                                    rowHeight={50}>
                                         <ImageListItem cols={2} rows={3}>
                                             <img src={`${jumpmaster_image}`}/>
                                         </ImageListItem>
@@ -202,7 +230,7 @@ export const About = () => {
                                 </ImageList>
                             </Grid>
                             {/* Life */}
-                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'none', md: 'block'}}}>
+                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'none', sm: 'block'}}}>
                                 <Typography variant="h4" align="center" color="white" paragraph>
                                     Life
                                 </Typography>
@@ -229,8 +257,8 @@ export const About = () => {
                                     the software development field. I guess you could say it runs in the family.
                                 </Typography>
                             </Grid>
-                            {/* Life Mobile*/}
-                            <Grid item xs={12} md={6} lg={6} sx={{ mt: 10, display: {xs: 'block', md: 'none'}}}>
+                            {/* Life Narrow*/}
+                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'block', sm: 'none'}}}>
                                 <Typography variant="caption" align="center" color="white" paragraph>
                                     Life
                                 </Typography>
@@ -257,13 +285,13 @@ export const About = () => {
                                     the software development field. I guess you could say it runs in the family.
                                 </Typography>
                             </Grid>
-                            {/* Life Images Mobile */}
-                            <Grid item xs={12} md={6} lg={6} sx={{ mt: 10, display: {xs: 'block', md: 'none'}}}>
+                            {/* Life Images Narrow */}
+                            <Grid item xs={12} md={6} lg={6} sx={{ display: {xs: 'block', md: 'none'}}}>
                                 <ImageList
                                     sx={{ width: 1, height: 1, }}
                                     variant="quilted"
                                     cols={4}
-                                    rowHeight={100}>
+                                    rowHeight={60}>
                                         <ImageListItem cols={2} rows={3}>
                                             <img src={`${sbsit_image}`}/>
                                         </ImageListItem>

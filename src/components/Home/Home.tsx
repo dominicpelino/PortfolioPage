@@ -29,12 +29,12 @@ export const Root = styled("div")({
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${code_image});`,
     width: '100%',
     height: '100%',
+    minHeight: 950,
     backgroundSize: 'cover',
-    backgroundAttachment: 'fixed',
-    backgroundRepeat: 'repeat',
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     position: 'absolute',
-    zIndex: '-1'
+    zIndex: '-2'
 });
 export const Main = styled('main')( {
    
@@ -44,11 +44,11 @@ export const BackgroundPic = styled('main')( {
     width: '100%',
     height: '100%',
     backgroundSize: 'cover',
-    backgroundRepeat: 'repeat',
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     position: 'absolute',
     top: '100%',
-    zIndex: '-1'
+    zIndex: '-2'
 });
 export const Overlay = styled('main')( {
     backgroundColor: 'black',
@@ -60,7 +60,7 @@ export const Overlay = styled('main')( {
     position: 'absolute',
     zIndex: '-1'
 });
-const OverlayTwo = styled('main')( {
+export const OverlayTwo = styled('main')( {
     backgroundColor: 'black',
     opacity: '50%',
     width: '100%',
@@ -76,14 +76,15 @@ export const Home = () => {
         <Root>
             <Overlay/>
             <Main>
-                <Box sx={{ display: {xs: 'block', md: 'none'}}}>
+                <Box sx={{ display: {xs: 'block', sm: 'none'}}}>
                     <BackgroundPic/>
                     <OverlayTwo/>
                 </Box>
-                <Container maxWidth="lg" sx={{ mt: 10, mb: 4 }}>
+                <Container maxWidth="lg" sx={{ mt: 5, mb: 4 }}>
+                    {/* Hero Image */}
                     <Grid container spacing={5}>
-                        <Grid item xs={12} md={4} lg={4}>
-                            <ImageList sx={{ width: 1, height: 1 }}
+                        <Grid item xs={12} sm={4} md={4} lg={4}>
+                            <ImageList sx={{ width: 1, height: 1}}
                                 cols={1}
                                 rowHeight={100}>
                                 <ImageListItem cols={1} rows={4}>
@@ -91,8 +92,8 @@ export const Home = () => {
                                 </ImageListItem>
                             </ImageList> 
                         </Grid>
-                        <Grid item xs={12} md={8}>
-                            <Box sx={{height: 'auto', mt: 10 }} >
+                        <Grid item xs={12} sm={8} md={8}>
+                            <Box sx={{height: 'auto', mt: { xs: 0, sm: 10 } }} >
                                 <Typography variant="h2" align="center" color="secondary" paragraph>
                                     DOMINIC PELINO
                                 </Typography>
@@ -107,8 +108,8 @@ export const Home = () => {
                             </Box>
                         </Grid>
                         <Grid container spacing={3}>
-                            <Grid item xs={6} md={3}>
-                                <Box sx={{height: 'auto', mt: 5, ml: 10, display: 'flex', flexDirection: 'row'}}>
+                            <Grid item xs={6} sm={3}>
+                                <Box sx={{height: 'auto', mt: 5, ml: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                                     <Stack>
                                         <IconButton component={Link} to='/about' >
                                             <AccountCircleIcon color='secondary' sx={{ fontSize: 50 }}/>
@@ -117,8 +118,8 @@ export const Home = () => {
                                     </Stack>
                                 </Box>
                             </Grid>
-                            <Grid item xs={6} md={3}>
-                                <Box sx={{height: 'auto', mt: 5, ml: 10, display: 'flex', flexDirection: 'row'}}>
+                            <Grid item xs={6} sm={3}>
+                                <Box sx={{height: 'auto', mt: 5, ml: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                                     <Stack>
                                         <IconButton href='https://www.linkedin.com/in/dominic-pelino-038b31208'>
                                             <LinkedInIcon color='secondary' sx={{ fontSize: 40 }} />
@@ -127,8 +128,8 @@ export const Home = () => {
                                     </Stack>
                                 </Box>
                             </Grid>
-                            <Grid item xs={6} md={3}>
-                                <Box sx={{height: 'auto', mt: 5, ml: 10, display: 'flex', flexDirection: 'row'}}>
+                            <Grid item xs={6} sm={3}>
+                                <Box sx={{height: 'auto', mt: 5, ml: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                                     <Stack>
                                         <IconButton href='https://github.com/dominicpelino'>
                                             <GitHubIcon color='secondary' sx={{ fontSize: 40 }} />
@@ -137,8 +138,8 @@ export const Home = () => {
                                     </Stack>
                                 </Box>
                             </Grid>
-                            <Grid item xs={6} md={3}>
-                                <Box sx={{height: 'auto', mt: 5, ml: 10, display: 'flex', flexDirection: 'row'}}>
+                            <Grid item xs={6} sm={3}>
+                                <Box sx={{height: 'auto', mt: 5, ml: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                                     <Stack>
                                         <IconButton href='https://drive.google.com/file/d/1XU1WWUHgFIV360FSfdhoiqffOGZyoiYj/view?usp=sharing'>
                                             <InsertDriveFileIcon color='secondary' sx={{ fontSize: 40 }} />
